@@ -1,5 +1,4 @@
 import random
-import time
 import math
 
 #--------------------- HELPER FUNCTIONS---------------------#
@@ -34,6 +33,9 @@ def mod_inverse(a, m):
 
 #------------------- End Of HELPER FUNCTIONS-------------------#
 
+
+
+#------------------- RSA ENCRYPTION IMPLEMENTATION-------------------#
 # n and e are the public key components, d and n is the private key component
 # Returns public key then private key
 def generate_keys():
@@ -46,21 +48,30 @@ def generate_keys():
     if math.gcd(e, phi) != 1:
         raise ValueError("e and phi are not coprime, choose different primes")
     d = mod_inverse(e, phi)
+    # returning the public key and private key
     return {"n":n,"e":e},{'n':n,'d':d}
+
+# Encrypts a message using the public key
 def encrypt(message, public_key):
     n = public_key['n']
     e = public_key['e']
+    # converting the message to a list of ascii values
     encoded_message = [ord(char) for char in message]
     return [pow(char, e, n) for char in encoded_message]
+# Decrypts a message using the private key
 def decrypt(ciphertext, private_key):
     n = private_key['n']
     d = private_key['d']
+    # decrypting the message using the private key
     decrypted_message= [pow(char, d, n) for char in ciphertext]
     return ''.join([chr(char) for char in decrypted_message])
 
+#------------------- End Of RSA ENCRYPTION IMPLEMENTATION-------------------#
 
+#------------------- EXAMPLE USAGE-------------------#
 public_key, private_key = generate_keys()
 encrypted_message = encrypt("Hello, World!", public_key)
 decrypted_message = decrypt(encrypted_message, private_key)
 print(decrypted_message)
+#------------------- End Of EXAMPLE USAGE-------------------#
 

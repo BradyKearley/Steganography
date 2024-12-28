@@ -70,7 +70,8 @@ def decrypt(ciphertext, private_key):
 
 #------------------- EXAMPLE USAGE-------------------#
 public_key, private_key = generate_keys()
-encrypted_message = encrypt("Hello, World!", public_key)
+encrypted_message = encrypt("Hellodsasd, World!", public_key)
+print(encrypted_message)
 decrypted_message = decrypt(encrypted_message, private_key)
 print(decrypted_message)
 #------------------- End Of EXAMPLE USAGE-------------------#

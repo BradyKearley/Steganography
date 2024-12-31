@@ -24,17 +24,6 @@ The goal of this project is to allow users to securely encrypt passwords and oth
 ## How to Run
 
 1. Install the required dependencies:
-<<<<<<< HEAD
-
-   ```sh
-   pip install pillow numpy
-   ```
-
-2. Run the main script:
-   ```sh
-   python main.py
-   ```
-=======
     ```sh
     pip install pillow numpy
     ```
@@ -43,7 +32,6 @@ The goal of this project is to allow users to securely encrypt passwords and oth
     ```sh
     python main.py
     ```
->>>>>>> 21e27729a1ad6157ebc3eff0d6c1cc700a6f84ee
 
 ## Example
 
